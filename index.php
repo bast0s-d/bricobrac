@@ -2,7 +2,7 @@
 require_once 'config.php';
 
 // CORRECTION 1 : Lire 'page' (minuscule) au lieu de 'pages' et enlever le '/' du défaut
-$page = $_GET['page'] ?? 'homepage';
+$page = $_GET['page'] ?? 'accueil';
 
 // Préparation du nom de fichier propre
 $page_safe = basename($page);
