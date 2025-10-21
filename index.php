@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+require_once 'vendor/autoload.php';
 
 // CORRECTION 1 : Lire 'page' (minuscule) au lieu de 'pages' et enlever le '/' du défaut
 $page = $_GET['page'] ?? 'accueil';
