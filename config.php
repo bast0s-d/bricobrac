@@ -1,0 +1,3 @@
+<?php
+
+define('RACINE_PROJET', __DIR__ . DIRECTORY_SEPARATOR);
