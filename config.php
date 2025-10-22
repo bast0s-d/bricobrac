@@ -1,4 +1,8 @@
 <?php
+require_once 'src/DBConnection.php';
+require_once 'vendor/autoload.php';
+session_start();
+
 
 define('RACINE_PROJET', __DIR__ . DIRECTORY_SEPARATOR);
 

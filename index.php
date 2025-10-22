@@ -1,6 +1,5 @@
 <?php
 require_once 'config.php';
-require_once 'vendor/autoload.php';
 
 $page = $_GET['page'] ?? 'accueil';
 
@@ -18,6 +17,8 @@ if (file_exists($page_file)) {
 
 
 include(RACINE_PROJET . 'components/head/head.php');
+
+include(RACINE_PROJET . 'components/sidebar/sidebar.php');
 
 include($contenu_page);
 

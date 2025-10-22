@@ -15,7 +15,7 @@ foreach ($produits as $produit) { ?>
             <div><?= htmlspecialchars($produit["promotion"]) ?>% de promotion</div>
             <div>Prix : <span style="text-decoration: line-through;"><?= htmlspecialchars($prixHtFloat + ($prixHtFloat * ($produit["prixtva"] / 100))) ?> €</span>
             </div>
-            <div>Prix : <?= htmlspecialchars($prixHtFloat - $prixPromotion) ?></div>
+            <div>Prix : <?= htmlspecialchars($prixHtFloat - $prixPromotion) ?> €</div>
 
 
             <?php
