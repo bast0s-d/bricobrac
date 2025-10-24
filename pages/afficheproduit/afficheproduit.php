@@ -73,7 +73,23 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
             supprimer le produit
         </button>
     </form>
+    <br>
+    <br>
+    <form action="index.php?page=gestionpanier&reference=<?= $produit[0]["reference"] ?>" method="POST">
+        <input type="hidden" name="action" value="ajouter">
+        <input type="hidden" name="reference" value="<?= $produit[0]["reference"] ?>">
+        <input type="number" name="quantite" value="1" min="1">
+        <button type="submit">Ajouter au panier</button>
+    </form>
 <?php
+
+
+
+
+
+
+
+
     if (isset($_SESSION['flash_message'])) {
         $message = htmlspecialchars($_SESSION['flash_message']);
         $type = $_SESSION['flash_type'] ?? 'info';
