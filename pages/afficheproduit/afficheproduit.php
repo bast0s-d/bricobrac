@@ -1,16 +1,15 @@
 <?php
 require_once 'src/DBConnection.php';
 
-$id = $_GET['id'];
+$reference = $_GET['reference'];
 
-$sql = "SELECT * FROM produits WHERE id=:id";
+$sql = "SELECT * FROM produits WHERE reference=:reference";
 
 
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(':id', $id);
+$stmt->bindParam(':reference', $reference);
 $stmt->execute();
 
-// PDO::FETCH_ASSOC garantit que les clés du tableau sont les noms des colonnes (id, nom, reference, etc.)
 $produit = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
@@ -58,3 +57,32 @@ if(empty($produit)){
 </div>
 
 <?php }
+
+if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true && $_SESSION['user_role'] === 1){ ?>
+
+    <br>
+    <a href="index.php?page=editproduit&reference=<?= $produit[0]["reference"] ?>">Modifier</a>
+
+    <br>
+    <br>
+    <form method="POST" action="index.php?page=supprimerproduit&reference=<?= $produit[0]["reference"] ?>" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ? Cette action est irréversible.');">
+
+        <input type="hidden" name="reference" value="<?= htmlspecialchars($produit[0]["reference"]) ?>">
+
+        <button type="submit" >
+            supprimer le produit
+        </button>
+    </form>
+<?php
+    if (isset($_SESSION['flash_message'])) {
+        $message = htmlspecialchars($_SESSION['flash_message']);
+        $type = $_SESSION['flash_type'] ?? 'info';
+
+        echo '<br><br>' . $message;
+
+        unset($_SESSION['flash_message']);
+        unset($_SESSION['flash_type']);
+    }
+}
+?>
+

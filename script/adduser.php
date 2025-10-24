@@ -10,9 +10,9 @@ echo "--- Création d'un Utilisateur Admin/Standard ---\n";
 
 // --- 1. Configuration de la base de données (À ADAPTER !) ---
 $host = 'localhost';
-$db = 'bricobrac_bdd'; // Remplacez par le nom de votre BDD
-$user = 'root'; // Remplacez par votre utilisateur MySQL
-$pass = ''; // Remplacez par votre mot de passe MySQL
+$db = 'bricobrac_bdd';
+$user = 'root';
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

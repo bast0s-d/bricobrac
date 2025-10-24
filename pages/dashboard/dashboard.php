@@ -6,17 +6,9 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     // Si l'utilisateur n'est pas connecté ou n'a pas le rôle '1' (admin)
 
     // Option 1: Redirection vers la page de connexion
-    header('Location: index.php?page=login');
+    header('Location: index.php?page=connection');
     exit();
-
-    // --- OU ---
-    // Option 2 (plus propre dans un système de routing): Afficher une erreur
-    // die("Accès refusé. Veuillez vous connecter en tant qu'administrateur.");
 }
-
-// -----------------------------------------------------
-// SEUL LE CODE APRÈS CE BLOC est exécuté par un ADMIN connecté
-// -----------------------------------------------------
 ?>
 
 <div>
@@ -24,3 +16,17 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     <p>Bienvenue Admin ID: <?= htmlspecialchars($_SESSION['user_id']) ?></p>
     <a href="index.php?page=deconnection">Se déconnecter</a>
 </div>
+
+<br>
+
+<a href="index.php?page=produits">Modifier un Produit</a>
+
+<br><br>
+
+<a href="index.php?page=editproduit">Ajouter un Produit</a>
+
+<br><br>
+
+<a href="index.php?page=produits">Supprimer un Produit</a>
+
+

@@ -2,7 +2,7 @@
 
 foreach ($produits as $produit) { ?>
 
-    <a href='index.php?page=afficheproduit&id=<?= $produit['id'] ?>' class="Card">
+    <a href='index.php?page=afficheproduit&reference=<?= $produit['reference'] ?>' class="Card">
         <div>Nom : <?= htmlspecialchars($produit["nom"]) ?></div>
         <?php
         // calcul du prix avec la promotion
